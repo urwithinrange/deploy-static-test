@@ -6,6 +6,16 @@ import os.path
 
 env.hosts = ['3.84.180.190', '54.82.73.173']
 
+def deploy():
+    """DEPLOY THE STUFF"""
+    archive = do_pack()
+
+    if archive is None:
+        return False
+
+    status = do_deploy(archive)
+
+    return status
 
 def do_deploy(archive_path):
     """Deploys the archive"""
